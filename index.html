@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 4em;
+            margin: 0;
+            animation: fadeIn 3s ease-in-out;
+        }
+        p {
+            font-size: 2em;
+            margin: 20px 0 0;
+            color: #800080; /* Suitable purple color */
+            animation: fadeIn 5s ease-in-out;
+        }
+        .balloons {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            z-index: 1;
+            pointer-events: none; /* Make balloons non-interactive */
+        }
+        .balloon {
+            width: 50px;
+            height: 100px;
+            background: radial-gradient(circle, #ff6f91, #ff9671);
+            border-radius: 50% 50% 45% 45%;
+            position: relative;
+            animation: float 4s ease-in-out infinite;
+        }
+        .balloon::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            background: #333;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .gift {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(to bottom, #f857a6, #ff5858);
+            margin: 20px auto 0;
+            border-radius: 10px;
+            cursor: pointer;
+            animation: shake 1s infinite;
+            position: relative;
+            z-index: 2;
+        }
+        .gift::before, .gift::after {
+            content: '';
+            position: absolute;
+            background: #fff;
+        }
+        .gift::before {
+            width: 100%;
+            height: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .gift::after {
+            width: 10px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .ribbon {
+            width: 80px;
+            height: 30px;
+            background: #fff;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+            border-radius: 5px 5px 0 0;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(-50%) rotate(0); }
+            25% { transform: translateX(-50%) rotate(-10deg); }
+            75% { transform: translateX(-50%) rotate(10deg); }
+        }
+        .hidden-message {
+            display: none;
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #800080; /* Suitable purple color */
+            animation: fadeIn 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday!</h1>
+        <p>To my wonderful girlfriend!</p>
+        <div class="gift" onclick="showMessage()">
+            <div class="ribbon"></div>
+        </div>
+        <p class="hidden-message">Hey love,happy birthday to the best girl in the world. Not gonna say much but my heart beats for you every day and you are gorgeous and the most amazing girl in the world, always and forever.❤️ Have a very good day my bun and don't you worry about anything because i love you forever. </p>
+    </div>
+    <div class="balloons">
+        <div class="balloon" style="animation-delay: 0s;"></div>
+        <div class="balloon" style="animation-delay: 0.5s;"></div>
+        <div class="balloon" style="animation-delay: 1s;"></div>
+        <div class="balloon" style="animation-delay: 1.5s;"></div>
+        <div class="balloon" style="animation-delay: 2s;"></div>
+        <div class="balloon" style="animation-delay: 2.5s;"></div>
+        <div class="balloon" style="animation-delay: 3s;"></div>
+        <div class="balloon" style="animation-delay: 3.5s;"></div>
+    </div>
+    <script>
+        function showMessage() {
+            document.querySelector('.hidden-message').style.display = 'block';
+            document.querySelector('.gift').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
